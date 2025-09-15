@@ -71,6 +71,12 @@ Verify binding:
 lspci -nnk -d 10de:1b81
 ```
 
+## Windows VM
+```
+hostpci0: 03:00.0,pcie=1,x-vga=1
+hostpci1: 03:00.1,pcie=1
+```
+
 ## GitLab
 
 https://docs.gitlab.com/install/package/
