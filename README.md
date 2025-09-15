@@ -74,3 +74,15 @@ lspci -nnk -d 10de:1b81
 ## GitLab
 
 https://docs.gitlab.com/install/package/
+
+```
+/etc/gitlab/gitlab.rb
+```
+```
+external_url 'http://192.168.0.202:4376'
+
+nginx['listen_https'] = false
+nginx['listen_port'] = 4376
+nginx['redirect_http_to_https'] = false
+letsencrypt['enable'] = false
+```
