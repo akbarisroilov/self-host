@@ -79,6 +79,32 @@ lspci -nnk -d 10de:1b81
 hostpci0: 03:00.0,pcie=1,x-vga=1
 hostpci1: 03:00.1,pcie=1
 ```
+```
+bios: ovmf
+boot: order=scsi0;ide0
+cores: 6
+cpu: x86-64-v2-AES
+efidisk0: local-lvm:vm-101-disk-0,efitype=4m,pre-enrolled-keys=1,size=4M
+hostpci0: 0000:03:00.0,pcie=1,x-vga=1
+hostpci1: 0000:03:00.1,pcie=1
+hostpci2: 0000:00:14
+hostpci3: 0000:00:1b
+ide0: local:iso/virtio-win-0.1.271.iso,media=cdrom,size=709474K
+machine: pc-q35-10.0
+memory: 8192
+meta: creation-qemu=10.0.2,ctime=1757839618
+name: windows-10
+net0: e1000=BC:24:11:6A:E8:2D,bridge=vmbr0,firewall=1
+numa: 0
+onboot: 1
+ostype: win11
+scsi0: local-lvm:vm-101-disk-1,iothread=1,size=256G
+scsihw: virtio-scsi-single
+smbios1: uuid=fc7bc40a-e0dd-4461-9257-6a9e595f914f
+sockets: 2
+tpmstate0: local-lvm:vm-101-disk-2,size=4M,version=v2.0
+vmgenid: 93a7925b-8581-4611-a20d-9d9a225a951f
+```
 
 ## GitLab
 
