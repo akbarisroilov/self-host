@@ -73,6 +73,9 @@ lspci -nnk -d 10de:1b81
 
 ### Windows VM
 ```
+/etc/pve/qemu-server/101.conf
+```
+```
 hostpci0: 03:00.0,pcie=1,x-vga=1
 hostpci1: 03:00.1,pcie=1
 ```
