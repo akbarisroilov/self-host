@@ -195,6 +195,10 @@ Add:
    guest ok = no
    create mask = 0775
 ```
+Create no login user if needed
+```
+sudo useradd -M -s /sbin/nologin smbuser
+```
 Give user samba credentials
 ```
 sudo smbpasswd -a smbuser
