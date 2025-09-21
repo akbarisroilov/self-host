@@ -106,6 +106,24 @@ tpmstate0: local-lvm:vm-101-disk-2,size=4M,version=v2.0
 vmgenid: 93a7925b-8581-4611-a20d-9d9a225a951f
 ```
 
+## Debian
+### set static ip
+```
+/etc/network/interfaces
+```
+```
+auto ens18
+iface ens18 inet static
+    address 192.168.1.100
+    netmask 255.255.255.0
+    gateway 192.168.1.1
+    dns-nameservers 8.8.8.8 1.1.1.1
+```
+```
+sudo systemctl restart networking
+```
+
+
 ## GitLab
 
 https://docs.gitlab.com/install/package/
