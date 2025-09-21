@@ -121,3 +121,78 @@ nginx['listen_port'] = 4376
 nginx['redirect_http_to_https'] = false
 letsencrypt['enable'] = false
 ```
+
+
+## Samba Storage
+### pass through a disk
+Identify the Disk
+```
+ls -l /dev/disk/by-id/
+```
+pass via proxmox command
+```
+qm set <VMID> -scsi1 /dev/disk/by-id/ata-Samsung_SSD_860_500GB_SERIAL
+```
+
+### prepare mount directory
+```
+sudo mkdir -p /srv/shared
+```
+```
+sudo mount /dev/sdb1 /srv/shared
+```
+
+###Make it persistent (auto-mount at boot):
+Get UUID:
+```
+sudo blkid /dev/sdb1
+```
+Example output:
+```
+/dev/sdb1: UUID="1234-ABCD" TYPE="ext4"
+```
+Edit fstab:
+```
+sudo nano /etc/fstab
+```
+Add a line:
+```
+UUID=1234-ABCD   /srv/shared   ext4   defaults   0   2
+```
+
+### install and setup samba
+```
+sudo apt update && sudo apt install samba -y
+```
+update samba conf
+```
+sudo vim /etc/samba/smb.conf
+```
+Add:
+```
+[sambashare]
+   path = /srv/shared
+   browseable = yes
+   writable = yes
+   guest ok = no
+   create mask = 0775
+```
+Give user samba credentials
+```
+sudo smbpasswd -a smbuser
+```
+Give permissions:
+```
+sudo chown -R smbuser:smbuser /srv/shared
+```
+Restart Samba:
+```
+sudo systemctl restart smbd
+```
+
+### connect from device
+Windows Explorer:
+\\<samba-vm-ip>\sambashare
+Linux:
+//<samba-vm-ip>/sambashare
+smbclient //samba-vm-ip/sambashare -U smbuser
