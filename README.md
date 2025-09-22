@@ -218,3 +218,15 @@ Windows Explorer:
 Linux:
 //<samba-vm-ip>/sambashare
 smbclient //samba-vm-ip/sambashare -U smbuser
+
+
+## Jellyfin
+https://jellyfin.org/docs/general/installation/
+
+### mount samba to jellyfin vm
+```
+sudo apt install cifs-utils
+```
+```
+sudo mount -t cifs //192.168.0.203/sambashare /mnt/media   -o username=smbuser,password='mypassword',vers=3.0,iocharset=utf8,uid=jellyfin,gid=jellyfin
+```
