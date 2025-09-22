@@ -114,9 +114,9 @@ vmgenid: 93a7925b-8581-4611-a20d-9d9a225a951f
 ```
 auto ens18
 iface ens18 inet static
-    address 192.168.1.100
+    address 192.168.0.100
     netmask 255.255.255.0
-    gateway 192.168.1.1
+    gateway 192.168.0.1
     dns-nameservers 8.8.8.8 1.1.1.1
 ```
 ```
