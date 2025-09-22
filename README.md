@@ -227,6 +227,23 @@ https://jellyfin.org/docs/general/installation/
 ```
 sudo apt install cifs-utils
 ```
+Create:
+```
+sudo vim /etc/samba/credentials
+```
+Add:
+```
+username=smbuser
+password=mypassword
+```
+Update fstab, add: 
+```
+//192.168.0.203/sambashare /mnt/media cifs credentials=/etc/samba/credentials,vers=3.0,iocharset=utf8,uid=jellyfin,gid=jellyfin,nofail 0 0
+```
+```
+sudo reboot
+```
+Optional, manual mounting:
 ```
 sudo mount -t cifs //192.168.0.203/sambashare /mnt/media   -o username=smbuser,password='mypassword',vers=3.0,iocharset=utf8,uid=jellyfin,gid=jellyfin
 ```
