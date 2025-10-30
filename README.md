@@ -243,6 +243,10 @@ Update fstab, add:
 ```
 sudo reboot
 ```
+Optional, manual mounting:
+```
+sudo mount -t cifs //192.168.0.203/sambashare /mnt/media   -o username=smbuser,password='mypassword',vers=3.0,iocharset=utf8,uid=jellyfin,gid=jellyfin
+```
 
 ## system daemon
 ### github action runner
@@ -261,8 +265,4 @@ StandardError=append:/var/log/action_runner_error.log
 
 [Install]
 WantedBy=multi-user.target
-```
-Optional, manual mounting:
-```
-sudo mount -t cifs //192.168.0.203/sambashare /mnt/media   -o username=smbuser,password='mypassword',vers=3.0,iocharset=utf8,uid=jellyfin,gid=jellyfin
 ```
