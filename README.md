@@ -79,7 +79,7 @@ you should see
 Kernel driver in use: vfio-pci
 ``
 
-## install UEFI for vm
+### install UEFI for vm
 ```
 apt install ovmf
 ```
