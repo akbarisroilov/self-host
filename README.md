@@ -79,6 +79,11 @@ you should see
 Kernel driver in use: vfio-pci
 ``
 
+## install UEFI for vm
+```
+apt install ovmf
+```
+
 ### Windows VM
 ```
 /etc/pve/qemu-server/101.conf
