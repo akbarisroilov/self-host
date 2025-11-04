@@ -70,6 +70,14 @@ Verify binding:
 ```
 lspci -nnk -d 10de:1b81
 ```
+or use
+```
+lspci -k | grep -A 2 -E "VGA|3D|Audio"
+```
+you should see
+``
+Kernel driver in use: vfio-pci
+``
 
 ### Windows VM
 ```
